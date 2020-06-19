@@ -1,0 +1,32 @@
+{
+  "vendor": "vtex",
+  "name": "oct8ne",
+  "version": "1.0.4",
+  "title": "Oct8ne",
+  "description": "Oct8ne is a chat solution",
+  "builders": {
+    "pixel": "0.x",
+    "docs": "0.x"
+  },
+  "billingOptions": {
+    "free": true
+  },
+  "dependencies": {},
+  "settingsSchema": {
+    "title": "Oct8ne",
+    "type": "object",
+    "properties": {
+      "licenseId": {
+        "title": "Oct8ne License",
+        "description": "Enter the Oct8ne License",
+        "type": "string"
+      },
+      "baseUrl": {
+        "title": "Base URL",
+        "description": "Enter the base URL",
+        "type": "string"
+      }
+      }
+    },
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
