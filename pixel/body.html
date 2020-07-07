@@ -2,11 +2,11 @@
   (function() {
     var licenseId = "{{settings.licenseId}}";
     var baseUrl = "{{settings.baseUrl}}";
-    var locale = document.querySelector('html').lang
+    var locale = document.querySelector('html').lang;
 
-    if (!license_id) {
-      console.error('Warning: No Oct8ne License ID is defined. Please configure it in the apps admin')
-      return
+    if (!licenseId) {
+      console.error('Warning: No Oct8ne License ID is defined. Please configure it in the apps admin');
+      return;
     }
     var oct8ne = document.createElement("script");
     oct8ne.type = "text/javascript";
