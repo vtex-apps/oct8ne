@@ -1,7 +1,7 @@
 {
   "vendor": "vtex",
   "name": "oct8ne",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "title": "Oct8ne",
   "description": "Oct8ne is a chat solution",
   "builders": {
