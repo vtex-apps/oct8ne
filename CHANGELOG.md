@@ -6,6 +6,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- Add variable to global scope.
+
 ## [1.0.6] - 2020-07-07
 
 ### Fixed
