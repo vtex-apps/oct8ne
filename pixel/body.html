@@ -1,27 +1,27 @@
 <script type="text/javascript">
-    (function() {
-        var licenseId = "{{settings.licenseId}}";
-        var baseUrl = "{{settings.baseUrl}}";
-        var actualBaseUrl = decodeURIComponent(baseUrl);
-        var locale = document.querySelector('html').lang;
-        var server = "backoffice.oct8ne.com/";
-        var src = (document.location.protocol == "https:" ? "https://" : "http://") + "static.oct8ne.com/api/v2/oct8ne-api-2.3.js?" + (Math.round(new Date().getTime() / 86400000));
+  (function() {
+    var licenseId = "{{settings.licenseId}}";
+    var baseUrl = "{{settings.baseUrl}}";
+    var actualBaseUrl = decodeURIComponent(baseUrl);
+    var locale = document.querySelector('html').lang;
+    var server = "backoffice.oct8ne.com/";
+    var src = (document.location.protocol == "https:" ? "https://" : "http://") + "static.oct8ne.com/api/v2/oct8ne-api-2.3.js?" + (Math.round(new Date().getTime() / 86400000));
 
-        if (!licenseId) {
-            console.error('Warning: No Oct8ne License ID is defined. Please configure it in the apps admin');
-            return;
-        }
+    if (!licenseId) {
+      console.error('Warning: No Oct8ne License ID is defined. Please configure it in the apps admin');
+      return;
+    }
 
-        var oct8ne = document.createElement("script");
-        oct8ne.type = "text/javascript";
-        oct8ne.async = true;
-        oct8ne.server = server;
-        oct8ne.license = licenseId;
-        oct8ne.locale = locale;
-        oct8ne.baseUrl = actualBaseUrl;
-        oct8ne.src = src;
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(oct8ne, s);
-        window.oct8ne = oct8ne;
+    var oct8ne = document.createElement("script");
+    oct8ne.type = "text/javascript";
+    oct8ne.async = true;
+    oct8ne.server = server;
+    oct8ne.license = licenseId;
+    oct8ne.locale = locale;
+    oct8ne.baseUrl = actualBaseUrl;
+    oct8ne.src = src;
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(oct8ne, s);
+    window.oct8ne = oct8ne;
   })();
 </script>
