@@ -4,8 +4,10 @@
     var baseUrl = "{{settings.baseUrl}}";
     var actualBaseUrl = decodeURIComponent(baseUrl);
     var locale = document.querySelector('html').lang;
-    var server = "backoffice.oct8ne.com/";
-    var src = (document.location.protocol == "https:" ? "https://" : "http://") + "static.oct8ne.com/api/v2/oct8ne-api-2.3.js?" + (Math.round(new Date().getTime() / 86400000));
+    //var server = "backoffice.oct8ne.com/";
+    //var src = (document.location.protocol == "https:" ? "https://" : "http://") + "static.oct8ne.com/api/v2/oct8ne-api-2.3.js?" + (Math.round(new Date().getTime() / 86400000));
+    var server = "localhost:44348/";
+    var src = (document.location.protocol == "https:" ? "https://" : "http://") + "localhost:44348/api/source/js/api/v2/2.3/debug/oct8ne-api-V2.3.js?" + (Math.round(new Date().getTime() / 86400000));
 
     if (!licenseId) {
       console.error('Warning: No Oct8ne License ID is defined. Please configure it in the apps admin');
@@ -13,7 +15,10 @@
     }
 
     var oct8ne = document.createElement("script");
+    oct8ne.id = 'oct8neScript';
     oct8ne.type = "text/javascript";
+    oct8ne.platform = "vtexio"; // LO PILLA POR NOMBRE
+	  oct8ne.apiVersion = "2.4";
     oct8ne.async = true;
     oct8ne.server = server;
     oct8ne.license = licenseId;
@@ -24,4 +29,117 @@
     s.parentNode.insertBefore(oct8ne, s);
     window.oct8ne = oct8ne;
   })();
+</script>
+
+<script type='text/javascript'>
+  (function() {
+    // Create global variable for oct8ne and integration variable
+    window.oct8neVtex = { cart: {}};
+    window.oct8ne.options = { vtexioInfo: { customerInfo : {} }};
+
+    // Some helper methods
+    window.oct8neVtex.enableLogs = true;
+    let log = function (message) {
+        if (window.oct8neVtex.enableLogs === false) return;
+        console.log(message);
+    };
+
+    let onOct8neScriptLoaded = function (callback) {
+      let oct8neScript = document.getElementById('oct8neScript');
+        oct8neScript.onload = callback;
+    };
+
+    // Event callbacks
+    let pageView = function (data) {
+        log('executing pageview');
+        window.oct8ne.restart();
+        log('oct8ne restart executed');
+    };
+
+    let productView = function (data) {
+        log('productView executing');
+        let product = data.product;
+        let firstItemImage = product.items[0].imageUrl;
+        window.oct8ne.currentProduct = { id: product.productId, thumbnail: firstItemImage };
+        log('product view executed');
+    };
+
+    let cartChanged = function (data) {
+        log('Executing addToCart');
+        let items = data.items;
+
+        // Map items
+        var oct8neItems = items.map(x => {
+              let internalId = x.productId;
+              let title = x.name;
+              let qty = x.quantity;
+              let price = (x.price / 100).toString();
+
+              let ret = { internalId, title, qty, price };
+              return ret;
+            });
+
+        // Map root
+        let price = 0;
+        items.forEach(x => price = price + x.price);
+
+        let totalItems = 0
+        items.forEach(x => totalItems = totalItems + x.quantity);
+
+        let finalPrice = price;
+        let currency = data.currency;
+        let cart = oct8neVtex;
+
+        // Final ojbect
+        let ret = { price, finalPrice, currency, totalItems, cart };
+        window.oct8neVtex.cart = ret;
+    };
+
+    let userData = function (data) {
+        log('executing userdata');
+        log(data);
+        window.oct8ne.options = { userData: {}};
+        if (data.isAuthenticated === false) return;
+
+        let id = data.id;
+        let firstName = data.email;
+        let lastName = data.email;
+        let email = data.email;
+        let wishList = null;
+        let cart = window.oct8neVtex.cart;
+
+        let ret = { id, firstName, lastName, email, wishList, cart };
+        window.oct8ne.options = { vtexioInfo: { customerInfo : ret }};
+    };
+
+    // Register and handle message event
+    let handleEvents = function (event) {
+        let data = event.data;
+        let eventName = data.eventName;
+        log(data);
+        switch (eventName) {
+
+          case 'vtex:pageView':
+            pageView(data);
+            break;
+
+          case 'vtex:productView':
+            productView(data);
+            break;
+
+          case 'vtex:cartChanged':
+            cartChanged(data);
+            break;
+
+          case 'vtex:userData':
+              userData(data);
+            break;
+        }
+    };
+
+    onOct8neScriptLoaded(function () {
+      window.addEventListener('message', handleEvents);
+    });
+})();
+
 </script>
