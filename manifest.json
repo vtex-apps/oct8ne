@@ -9,7 +9,11 @@
     "docs": "0.x"
   },
   "billingOptions": {
-    "free": true
+    "free": true,
+    "termsURL": "https://oct8ne.com/terms-of-service/",
+    "support": {
+      "url": "https://oct8ne.com/faqs/"
+    }
   },
   "dependencies": {},
   "settingsSchema": {
@@ -25,6 +29,19 @@
         "title": "Base URL",
         "description": "Enter the base URL",
         "type": "string"
+      },
+      "server": {
+        "title": "Server",
+        "type": "string",
+        "default": "backoffice.oct8ne.com/",
+        "enum": [
+          "backoffice-eu.oct8ne.com",
+          "backoffice.oct8ne.com/"
+        ],
+        "enumNames": [
+          "EU",
+          "USA"
+        ]
       }
     }
   },
