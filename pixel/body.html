@@ -19,16 +19,16 @@
     var licenseId = "{{settings.licenseId}}";
     var baseUrl = "{{settings.baseUrl}}";
     var server = "{{settings.server}}";
-    var actualServer = decodeURIComponent(server);
     var actualBaseUrl = decodeURIComponent(baseUrl);
+    var actualServer = decodeURIComponent(server);
     var locale = document.querySelector('html').lang;
     var isEu = server.includes('-eu');
     var srcStaticPart = isEu ? "static-eu.oct8ne.com" : "static.oct8ne.com";
     var src = (document.location.protocol == "https:" ? "https://" : "http://") + srcStaticPart + "/api/v2/oct8ne-api-2.3.js?" + (Math.round(new Date().getTime() / 86400000));
     
     // For debugging purposes - remove when done =====================================
-    actualServer = "localhost:44348/";
-    src = (document.location.protocol == "https:" ? "https://" : "http://") + "localhost:44348/api/source/js/api/v2/2.3/debug/oct8ne-api-V2.3.js?" + (Math.round(new Date().getTime() / 86400000));
+    //actualServer = "localhost:44348/";
+    //src = (document.location.protocol == "https:" ? "https://" : "http://") + "localhost:44348/api/source/js/api/v2/2.3/debug/oct8ne-api-V2.3.js?" + (Math.round(new Date().getTime() / 86400000));
     // For debugging purposes - remove when done =====================================
      
     if (!licenseId) {
@@ -36,11 +36,11 @@
       return;
     }
     var oct8ne = document.createElement("script");
-    oct8ne.id = 'oct8neScript';
     oct8ne.type = "text/javascript";
+    oct8ne.async = true;
+    oct8ne.id = 'oct8neScript';
     oct8ne.platform = "vtexio"; // LO PILLA POR NOMBRE
 	  oct8ne.apiVersion = "2.4";
-    oct8ne.async = true;
     oct8ne.server = actualServer;
     oct8ne.license = licenseId;
     oct8ne.locale = locale;
@@ -98,7 +98,7 @@
     };
 
     var productView = function (data) {
-        log('productView executing');
+        log('productView executing 2');
         var product = data.product;
         var firstItemImage = product.items[0].imageUrl;
 
@@ -140,7 +140,6 @@
         // Final ojbect for cart cand customer cart
         var ret = { price : price, finalPrice : finalPrice, currency : currency, totalItems : totalItems, cart : cart };
         window.oct8neVtex.cart = ret;
-        debugger;
         window.oct8neVtex.customerCart = mapCustomerCart(items);
         runUserDataEvent();
         log('Executed addToCart - Run user data event');
@@ -168,6 +167,8 @@
         var eventName = event.eventName;
         log('Lets handle this event: =============================');
         log(event);
+        log('pixel events: =============================');
+        log(window.pixelManagerEvents);
         switch (eventName) {
           case 'vtex:pageView':
             pageView(event);
@@ -207,23 +208,10 @@
 
       // Listen to any mesage
       window.addEventListener('message', function (e) {
-            var vtexEvent = e.data;
-            handleVtexEvent(vtexEvent);
+          var vtexEvent = e.data;
+          handleVtexEvent(vtexEvent);
       });
     });
-
-    // Run user data event first time page is refreshed
-    // window.onload = function (e) {
-    //   var events = window.pixelManagerEvents;
-    //   var userDataEvent = events.find(function (singleEvent) {
-    //       var ret = singleEvent.event === 'userData';
-    //       return ret;
-    //   });
-
-    //   log('Lets handle user data event: =============================');
-    //   log(userDataEvent);
-    //   userData(userDataEvent);
-    // };
 
 })();
 

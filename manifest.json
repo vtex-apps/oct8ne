@@ -1,6 +1,6 @@
 {
   "vendor": "vtex",
-  "name": "oct8ne",
+  "name": "Oct8ne",
   "version": "1.0.5",
   "title": "Oct8ne",
   "description": "Oct8ne is a chat solution",
@@ -9,7 +9,11 @@
     "docs": "0.x"
   },
   "billingOptions": {
-    "free": true
+    "free": true,
+    "termsURL": "https://oct8ne.com/terms-of-service/",
+    "support": {
+      "url": "https://oct8ne.com/faqs/"
+    }
   },
   "dependencies": {},
   "settingsSchema": {
