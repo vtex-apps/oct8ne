@@ -6,7 +6,9 @@
   "description": "Oct8ne is a chat solution",
   "builders": {
     "pixel": "0.x",
-    "docs": "0.x"
+    "docs": "0.x",
+    "react": "3.x",
+    "store": "0.x"
   },
   "billingOptions": {
     "free": true,
@@ -15,7 +17,9 @@
       "url": "https://oct8ne.com/faqs/"
     }
   },
-  "dependencies": {},
+  "dependencies": {
+    "vtex.pixel-interfaces": "1.x"
+  },
   "settingsSchema": {
     "title": "Oct8ne",
     "type": "object",

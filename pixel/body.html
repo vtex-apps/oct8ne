@@ -2,13 +2,13 @@
 <script type="text/javascript">
   (function() {
     // Create global variable for oct8ne and integration variable
-    window.oct8neVtex = { cart: {}};
+    window.oct8neVtex = { cart: {} };
     window.oct8neVtex.enableLogs = true;
 
     // Some helper methods
     window.oct8neVtex.log = function (message) {
-        if (window.oct8neVtex.enableLogs === false) return;
-        console.log(message);
+      if (window.oct8neVtex.enableLogs === false) return;
+      console.log(message);
     };
   })();
 </script>
@@ -53,167 +53,4 @@
     s.parentNode.insertBefore(oct8ne, s);
     window.oct8ne = oct8ne;
   })();
-</script>
-
-<!-- GET PRODUCT, CART, AND CUSTOMER =========================================== -->
-<script type='text/javascript'>
-  (function() {
-    // Helper methods
-    var log = window.oct8neVtex.log;
-
-    var onOct8neScriptLoaded = function (callback) {
-      var oct8neScript = document.getElementById('oct8neScript');
-        oct8neScript.onload = callback;
-    };
-
-    var mapCustomerCart = function (items) {
-      var customerCart = items.map(function (x) {
-          var internalId = x.productId;
-          var title = x.name;
-          var formattedPrice = (x.price / 100).toString();
-          var formattedPrevPrice = formattedPrice;
-          var productUrl = window.location.href + x.detailUrl;
-          var thumbnail = x.imageUrl;
-          var qty = x.quantity;
-
-          var ret = {
-            internalId : internalId,
-            title : title,
-            formattedPrice : formattedPrice,
-            formattedPrevPrice : formattedPrevPrice,
-            productUrl : productUrl,
-            thumbnail : thumbnail,
-            qty : qty
-          };
-          return ret;
-      });
-
-      return customerCart;
-    };
-
-    // Event callbacks
-    var pageView = function (data) {
-        log('executing pageview');
-        window.oct8ne.restart();
-        log('oct8ne restart executed');
-    };
-
-    var productView = function (data) {
-        log('productView executing 2');
-        var product = data.product;
-        var firstItemImage = product.items[0].imageUrl;
-
-        window.oct8ne.currentProduct = { id : product.productId, thumbnail : firstItemImage};
-        window.oct8ne.restart();
-        log('product view executed');
-    };
-
-    var cartChanged = function (data) {
-        log('Executing addToCart');
-        var items = data.items;
-
-        // Map items
-        var oct8neItems = items.map(function (x) {
-          var internalId = x.productId;
-              var title = x.name;
-              var qty = x.quantity;
-              var price = (x.price / 100).toString();
-
-              var ret = { internalId : internalId, title : title, qty : qty, price : price };
-              return ret;
-        });
-
-        // Map root
-        var price = 0;
-        items.forEach(function (x) {
-          price = price + x.price;
-        });
-
-        var totalItems = 0;
-        items.forEach(function (x) {
-          totalItems = totalItems + x.quantity;
-        });
-
-        var finalPrice = price;
-        var currency = data.currency;
-        var cart = oct8neItems;
-
-        // Final ojbect for cart cand customer cart
-        var ret = { price : price, finalPrice : finalPrice, currency : currency, totalItems : totalItems, cart : cart };
-        window.oct8neVtex.cart = ret;
-        window.oct8neVtex.customerCart = mapCustomerCart(items);
-        runUserDataEvent();
-        log('Executed addToCart - Run user data event');
-    };
-
-    var userData = function (data) {
-        log('executing userdata');
-        window.oct8ne.options = { vtexioInfo: { customerInfo : null }};
-        if (data === undefined  || data.isAuthenticated === false) return;
-
-        var id = data.id;
-        var firstName = data.firstName !== undefined ? data.firstName : data.email;
-        var lastName = data.lastName !== undefined ? data.lastName : data.email;
-        var email = data.email;
-        var wishList = null;
-        var cart = window.oct8neVtex.customerCart;
-
-        var ret = { id : id, firstName : firstName, lastName :  lastName, email : email, wishList : wishList, cart : cart };
-        window.oct8ne.options.vtexioInfo.customerInfo = ret;
-        log('executed userdata');
-    };
-
-    // Handle message event
-    var handleVtexEvent = function (event) {
-        var eventName = event.eventName;
-        log('Lets handle this event: =============================');
-        log(event);
-        log('pixel events: =============================');
-        log(window.pixelManagerEvents);
-        switch (eventName) {
-          case 'vtex:pageView':
-            pageView(event);
-            break;
-
-          case 'vtex:productView':
-            productView(event);
-            break;
-
-          case 'vtex:cartChanged':
-            cartChanged(event);
-            break;
-
-          case 'vtex:userData':
-              userData(event);
-            break;
-        }
-    };
-
-    let runUserDataEvent = function () {
-      // run user data event
-      var events = window.pixelManagerEvents;
-      var userDataEvent = events.find(function (singleEvent) {
-          var ret = singleEvent.event === 'userData';
-          return ret;
-      });
-
-      log('Lets handle user data event: =============================');
-      log(userDataEvent);
-      userData(userDataEvent);
-    };
-
-    // Register message events
-    onOct8neScriptLoaded(function () {
-      // Run user data event first time script is loaded
-      runUserDataEvent();
-
-      // Listen to any mesage
-      window.addEventListener('message', function (e) {
-          var vtexEvent = e.data;
-          handleVtexEvent(vtexEvent);
-      });
-    });
-
-})();
-
 </script>
