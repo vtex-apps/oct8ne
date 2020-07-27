@@ -1,3 +1,2 @@
-El único chat con soporte de atención al cliente visual.
-Muestra productos en tiempo real para personalizar la experiencia de compra
-y aumentar las ventas de tu negocio
+Interact with your customers in real time.
+Help your customers by showing them images and videos of your products using the coviewer to help them along in the decision making process.
