@@ -8,8 +8,7 @@ import {
   CartItem,
 } from "./typings/events";
 
-const log = window.oct8neVtex.log;
-
+let log = console.log
 let notCapturedEvents: PixelMessage[] = [];
 let scriptLoaded = false;
 
@@ -153,13 +152,16 @@ function runUserDataEvent() {
 if (canUseDOM) {
   const onOct8neScriptLoaded = function (callback: any) {
     const oct8neScript = document.getElementById("oct8neScript");
-    oct8neScript!.onload = callback;
+    if (oct8neScript) {
+      oct8neScript.onload = callback;
+    }
   };
 
   window.addEventListener("message", handleEvents);
 
   onOct8neScriptLoaded(function () {
     scriptLoaded = true;
+    log = window.oct8neVtex.log;
 
     // Run user data event first time script is loaded
     runUserDataEvent();

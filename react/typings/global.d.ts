@@ -5,7 +5,7 @@ interface Window extends Window {
 }
 
 interface Oct8neVtex {
-  log: Function
+  log: (param: string) => void
   cart: Cart
   customerCart: Item[]
 }
