@@ -9,7 +9,11 @@
     "docs": "0.x"
   },
   "billingOptions": {
-    "free": true
+    "free": true,
+    "termsURL": "https://oct8ne.com/terms-of-service/",
+    "support": {
+      "url": "https://oct8ne.com/faqs/"
+    }
   },
   "dependencies": {},
   "settingsSchema": {
