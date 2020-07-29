@@ -150,20 +150,42 @@ function runUserDataEvent() {
 }
 
 if (canUseDOM) {
-  const onOct8neScriptLoaded = function (callback: any) {
-    const oct8neScript = document.getElementById("oct8neScript");
-    if (oct8neScript) {
-      oct8neScript.onload = callback;
-    }
-  };
-
+  // Listen to message events
   window.addEventListener("message", handleEvents);
 
-  onOct8neScriptLoaded(function () {
+  // Callback : when oct8ne script is loaded
+  const onOct8neScriptLoaded = function () {
+
     scriptLoaded = true;
     log = window.oct8neVtex.log;
 
     // Run user data event first time script is loaded
     runUserDataEvent();
-  });
+  };
+
+  // Lets check every some interval if oct8ne script is loaded
+  let oct8neScriptCheckTimeoutInMilliseconds = 10000; // 10s
+  let timeCountInMilliseconds = 0;
+  let intervalInMilliseconds = 100;
+
+  let oct8neScriptCheckInterval = setInterval(function () {
+    // Do not continue if timeout was reached
+    if (timeCountInMilliseconds > oct8neScriptCheckTimeoutInMilliseconds){
+      clearInterval(oct8neScriptCheckInterval);
+      return;
+    }
+
+    // Count time
+    timeCountInMilliseconds = timeCountInMilliseconds + intervalInMilliseconds;
+
+    // Do not continue if oct8ne script was not appended
+    const oct8neScript = document.getElementById("oct8neScript");
+    if (!oct8neScript) return;
+
+    // Clear interval and run callback when oct8ne script is loaded
+    clearInterval(oct8neScriptCheckInterval);
+    oct8neScript.onload = function () {
+      onOct8neScriptLoaded();
+    };
+  }, 100);
 }
