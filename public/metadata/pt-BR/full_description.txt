@@ -1,0 +1,46 @@
+## Sobre
+Interaja com seus clientes em tempo real.
+Ajude seus clientes, mostrando-lhes imagens e vídeos de seus produtos usando o coviewer para ajudá-los no processo de tomada de decisão.
+
+## Funcionalidades
+-Coviewer
+Descubra uma experiência de compra mais interativa usando o coviewer para ver o que seus clientes veem em tempo real. Você poderá mostrar produtos e interagir com os clientes para aumentar as vendas implementando técnicas de venda direta e venda cruzada. Os usuários também poderão fazer upload de suas próprias imagens para mostrar exatamente o que estão procurando, como itens quebrados ou semelhantes.
+
+Integração -Catálogo
+Mostre imagens e vídeos de seus produtos em um clique no coviewer. A integração do catálogo com o suporte visual permite reproduzir a experiência de uma loja física.
+
+-História de navegação
+Você pode ver os interesses do seu cliente acessando o histórico de navegação dele. Você poderá ver quais produtos eles procuraram para oferecer atendimento personalizado e orientar o cliente durante todo o processo de compra. Você não precisará se preocupar com a privacidade: a única coisa que o agente poderá ver é o histórico de navegação, mas não a tela inteira do cliente.
+
+Algoritmos preditivos
+Antecipe as perguntas de seus clientes por meio de algoritmos automáticos que detectam o momento ideal para se comunicar com seus clientes, por exemplo, quando os usuários estão no seu site há muito tempo, quando comparam vários produtos ou quando o valor do carrinho atinge um valor específico. Fique à frente de situações críticas e capture clientes antes que eles tenham dúvidas.
+
+-Video chamada
+Se você precisar conversar cara a cara com seu cliente, poderá continuar a conversa por meio de uma vídeo chamada Oct8ne que também permite compartilhar telas.
+
+-Pino do telefone
+Conecte-se com os clientes que você está atendendo por telefone também através do coviewer, inserindo um código. A comunicação é sempre mais fácil se você puder ver o que está falando em tempo real.
+
+-Chat Bot
+Nosso chatbot é totalmente integrado ao chat ao vivo para facilitar o trabalho de seus agentes, respondendo automaticamente em apenas um segundo, entendendo a linguagem natural em vários idiomas e, quando os clientes precisam de aconselhamento personalizado, transferem a consulta para um humano. Aumenta as vendas graças à assistência em tempo real quando seus agentes não estão conectados, além de coletar dados de potenciais compradores. Se você usar outro sistema de bot, também poderá integrá-lo ao chat do Oct8ne.
+
+Interface multi-idioma
+O Oct8ne se adapta ao idioma em que suas páginas estão, para que seus clientes se sintam confortáveis ​​em qualquer lugar do mundo.
+
+-Relatórios
+Você terá dados sobre conversas e imagens mostradas no coviewer em tempo real e poderá acompanhar todas as atividades.
+
+-Gerenciar carga de trabalho
+Aumente a produtividade graças aos recursos projetados para aumentar as vendas e ajudar a economizar tempo.
+
+## Como configurar
+1.- Instale o aplicativo Oct8ne
+2.- Vá para a seção "Aplicativos" no administrador da sua loja e abra o painel do aplicativo oct8ne.
+3.- Preencha o servidor, a licença e o URL base e clique em Salvar
+4.- Feito. Você deve ver o bate-papo da Oct8ne em todas as páginas da sua loja.
+
+Como obter a licença e o URL base?
+Vá para o painel Oct8ne e, em seguida, para Gerenciamento-> Instalações. Adicione um novo domínio para sua loja. Depois de adicionado, clique em "OBTER CÓDIGO" para esse domínio e copie a licença e o URL base.
+
+## Comentários
+Você precisa de ajuda? entre em contato com support@oct8ne.com
