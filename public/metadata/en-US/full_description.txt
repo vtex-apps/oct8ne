@@ -42,5 +42,5 @@ Increase productivity thanks to features designed to increase sales and help you
 How to get the license and the base url from?
 Go to Oct8ne dashboard, then to Management-> Installations. Add a new domain for your store. Once it is added, click on "GET CODE" for that domain and copy the license and the base url.
 
-## Comments   
-Do you need help? contact at support@oct8ne.com
+ ## Comments
+Do you need help? Write an email to support@oct8ne.com
