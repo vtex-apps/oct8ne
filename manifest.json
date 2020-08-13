@@ -15,7 +15,11 @@
     "termsURL": "https://oct8ne.com/terms-of-service/",
     "support": {
       "url": "https://oct8ne.com/faqs/"
-    }
+    },
+    "type": "free",
+    "availableCountries": [
+      "*"
+    ]
   },
   "dependencies": {
     "vtex.pixel-interfaces": "1.x"
