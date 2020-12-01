@@ -1,6 +1,5 @@
 <!-- GLOBAL VARIABLES AND CORE STUFF =========================================== -->
 <script type="text/javascript">
-console.log('dar 234')
   (function() {
     // Create global variable for oct8ne and integration variable
     window.oct8neVtex = { cart: {} };
@@ -16,6 +15,7 @@ console.log('dar 234')
 
 <!-- OCT8NE SCRIPT =========================================== -->
 <script type="text/javascript">
+console.log('Loading oct8ne script');
   (function() {
     var licenseId = "{{settings.licenseId}}";
     var baseUrl = "{{settings.baseUrl}}";
@@ -40,8 +40,8 @@ console.log('dar 234')
     var oct8ne = document.createElement("script");
     oct8ne.type = "text/javascript";
     oct8ne.async = true;
-    oct8ne.id = 'oct8neScript';
-    oct8ne.platform = "vtexio"; // LO PILLA POR NOMBRE
+    oct8ne.id = 'vtexio_app_oct8neScript';
+    oct8ne.platform = "vtexio";
 	  oct8ne.apiVersion = "2.4";
     oct8ne.server = actualServer;
     oct8ne.license = licenseId;
