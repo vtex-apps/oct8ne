@@ -39,7 +39,7 @@
         "type": "string",
         "default": "backoffice.oct8ne.com/",
         "enum": [
-          "backoffice-eu.oct8ne.com",
+          "backoffice-eu.oct8ne.com/",
           "backoffice.oct8ne.com/"
         ],
         "enumNames": [

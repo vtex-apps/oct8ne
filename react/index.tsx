@@ -13,11 +13,15 @@ let notCapturedEvents: PixelMessage[] = [];
 let scriptLoaded = false;
 
 export function handleEvents(e: PixelMessage) {
+  log(`Start handleEvents method`);
+  
   if (scriptLoaded === false) {
     notCapturedEvents.push(e);
+    log(`Do not continue with handleEvents methods since scripLoaded is false`);
     return;
   }
-
+  
+  log(`Processing this method -> '${e.data.eventName}'`);
   switch (e.data.eventName) {
     case "vtex:pageView":
       pageView();
@@ -149,43 +153,58 @@ function runUserDataEvent() {
   }
 }
 
+log(`'index.tsx' was loaded`);
+log(`Before canUseDOM. canUseDOM : '${canUseDOM}'`);
+log(`notCapturedEvents : '${notCapturedEvents}'`);
 if (canUseDOM) {
   // Listen to message events
   window.addEventListener("message", handleEvents);
-
+  log(`Event listener added`);
+  
   // Callback : when oct8ne script is loaded
   const onOct8neScriptLoaded = function () {
-
+    log(`Start onOct8neScriptLoaded`);
+    
     scriptLoaded = true;
     log = window.oct8neVtex.log;
-
+    
     // Run user data event first time script is loaded
+    log(`Lets run user event`);
     runUserDataEvent();
   };
-
+  
   // Lets check every some interval if oct8ne script is loaded
-  let oct8neScriptCheckTimeoutInMilliseconds = 10000; // 10s
+  let oct8neScriptCheckTimeoutInMilliseconds = 10000; // 5s
   let timeCountInMilliseconds = 0;
-  let intervalInMilliseconds = 100;
-
+  let intervalInMilliseconds = 200;
+  
+  log(`Lets start interval`);
   let oct8neScriptCheckInterval = setInterval(function () {
     // Do not continue if timeout was reached
+    log(`Interval execution ${timeCountInMilliseconds} - Starting`);
     if (timeCountInMilliseconds > oct8neScriptCheckTimeoutInMilliseconds){
       clearInterval(oct8neScriptCheckInterval);
+      log(`Interval execution ${timeCountInMilliseconds} - Interval was clear 1`);
       return;
     }
-
+    
     // Count time
     timeCountInMilliseconds = timeCountInMilliseconds + intervalInMilliseconds;
-
+    
     // Do not continue if oct8ne script was not appended
-    const oct8neScript = document.getElementById("oct8neScript");
-    if (!oct8neScript) return;
-
+    const oct8neScript = document.getElementById("vtexio_app_oct8neScript");
+    if (!oct8neScript){
+      log(`Interval execution ${timeCountInMilliseconds} - Do not continue since oct8ne script was not loaded`);
+      log(oct8neScript);
+      return;
+    } 
+    
     // Clear interval and run callback when oct8ne script is loaded
     clearInterval(oct8neScriptCheckInterval);
+    log(`Interval execution ${timeCountInMilliseconds} - Interval was clear 2`);
     oct8neScript.onload = function () {
+      log(`Interval execution ${timeCountInMilliseconds} - Oct8ne script was loaded. Lets run onOct8neScriptLoaded`);
       onOct8neScriptLoaded();
     };
-  }, 100);
+  }, intervalInMilliseconds);
 }
