@@ -11,9 +11,10 @@ import {
 let log = console.log
 let notCapturedEvents: PixelMessage[] = [];
 let scriptLoaded = false;
+declare var oct8ne: any;
 
 export function handleEvents(e: PixelMessage) {
-  log(`Start handleEvents method`);
+  // log(`Start handleEvents method`);
   
   if (scriptLoaded === false) {
     notCapturedEvents.push(e);
@@ -200,11 +201,12 @@ if (canUseDOM) {
     } 
     
     // Clear interval and run callback when oct8ne script is loaded
-    clearInterval(oct8neScriptCheckInterval);
-    log(`Interval execution ${timeCountInMilliseconds} - Interval was clear 2`);
-    oct8neScript.onload = function () {
+    let oct8ne: any = {};
+    oct8ne = window.oct8ne;
+    if (window.oct8ne !== undefined && oct8ne.isLoaded === true){
       log(`Interval execution ${timeCountInMilliseconds} - Oct8ne script was loaded. Lets run onOct8neScriptLoaded`);
       onOct8neScriptLoaded();
-    };
+      clearInterval(oct8neScriptCheckInterval);
+    }
   }, intervalInMilliseconds);
 }
