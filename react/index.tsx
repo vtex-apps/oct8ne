@@ -8,20 +8,20 @@ import {
   CartItem,
 } from "./typings/events";
 
-let log = console.log
+let log = canUseDOM && window.oct8neVtex.enableLogs ? console.log : () => {};
 let notCapturedEvents: PixelMessage[] = [];
 let scriptLoaded = false;
 declare var oct8ne: any;
 
 export function handleEvents(e: PixelMessage) {
   // log(`Start handleEvents method`);
-  
+
   if (scriptLoaded === false) {
     notCapturedEvents.push(e);
     log(`Do not continue with handleEvents methods since scripLoaded is false`);
     return;
   }
-  
+
   log(`Processing this method -> '${e.data.eventName}'`);
   switch (e.data.eventName) {
     case "vtex:pageView":
@@ -161,24 +161,24 @@ if (canUseDOM) {
   // Listen to message events
   window.addEventListener("message", handleEvents);
   log(`Event listener added`);
-  
+
   // Callback : when oct8ne script is loaded
   const onOct8neScriptLoaded = function () {
     log(`Start onOct8neScriptLoaded`);
-    
+
     scriptLoaded = true;
     log = window.oct8neVtex.log;
-    
+
     // Run user data event first time script is loaded
     log(`Lets run user event`);
     runUserDataEvent();
   };
-  
+
   // Lets check every some interval if oct8ne script is loaded
   let oct8neScriptCheckTimeoutInMilliseconds = 10000; // 5s
   let timeCountInMilliseconds = 0;
   let intervalInMilliseconds = 200;
-  
+
   log(`Lets start interval`);
   let oct8neScriptCheckInterval = setInterval(function () {
     // Do not continue if timeout was reached
@@ -188,18 +188,18 @@ if (canUseDOM) {
       log(`Interval execution ${timeCountInMilliseconds} - Interval was clear 1`);
       return;
     }
-    
+
     // Count time
     timeCountInMilliseconds = timeCountInMilliseconds + intervalInMilliseconds;
-    
+
     // Do not continue if oct8ne script was not appended
     const oct8neScript = document.getElementById("vtexio_app_oct8neScript");
     if (!oct8neScript){
       log(`Interval execution ${timeCountInMilliseconds} - Do not continue since oct8ne script was not loaded`);
       log(oct8neScript);
       return;
-    } 
-    
+    }
+
     // Clear interval and run callback when oct8ne script is loaded
     let oct8ne: any = {};
     oct8ne = window.oct8ne;
