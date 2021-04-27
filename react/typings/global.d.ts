@@ -5,9 +5,10 @@ interface Window extends Window {
 }
 
 interface Oct8neVtex {
-  log: (param: string) => void
-  cart: Cart
-  customerCart: Item[]
+  log: (param: string) => void;
+  cart: Cart;
+  customerCart: Item[];
+  enableLogs: boolean;
 }
 
 interface Oct8ne {
