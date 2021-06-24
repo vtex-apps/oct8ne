@@ -8,7 +8,13 @@ import {
   CartItem,
 } from "./typings/events";
 
-let log = canUseDOM && window.oct8neVtex.enableLogs ? console.log : () => {};
+let log = (msg : any) => {
+    let enableLogs = window.oct8neVtex?.enableLogs;
+    if ( enableLogs === undefined) enableLogs = false;
+    if (enableLogs === false) return;
+    console.log(msg);  
+};
+
 let notCapturedEvents: PixelMessage[] = [];
 let scriptLoaded = false;
 declare var oct8ne: any;
