@@ -10,8 +10,7 @@ import {
 
 let log = (msg : any) => {
     let enableLogs = window.oct8neVtex?.enableLogs;
-    if ( enableLogs === undefined) enableLogs = false;
-    if (enableLogs === false) return;
+    if (!enableLogs) return;
     console.log(msg);  
 };
 
