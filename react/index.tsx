@@ -9,7 +9,7 @@ import {
 } from "./typings/events";
 
 let log = (msg : any) => {
-    let enableLogs = window.oct8neVtex?.enableLogs;
+    const enableLogs = window.oct8neVtex?.enableLogs;
     if (!enableLogs) return;
     console.log(msg);  
 };
