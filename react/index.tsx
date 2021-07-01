@@ -9,6 +9,8 @@ import {
 } from "./typings/events";
 
 let log = (msg : any) => {
+    if ( ! canUseDOM ) return;
+
     const enableLogs = window.oct8neVtex?.enableLogs;
     if (!enableLogs) return;
     console.log(msg);  
