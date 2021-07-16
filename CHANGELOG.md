@@ -6,6 +6,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [3.0.0] - 2021-07-16
+
+## [2.0.6] - 2021-07-16
+
+### Fixed
+- cannot read property 'enableLogs' of undefined
+
 ## [2.0.5] - 2021-04-27
 ### Fixed
 - Disable logs.
