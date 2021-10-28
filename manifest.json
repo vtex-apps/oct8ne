@@ -50,7 +50,7 @@
       "oct8neAppUrl": {
         "title": "Oct8ne app url",
         "description": "Enter the url to read the oct8ne app script from",
-        "default": "https://ecommerceproxy.oct8ne.com/scripts/vtexio/oct8neApp.js",
+        "default": "https://ecommerceproxy-cdn.oct8ne.com/scripts/vtexio/oct8neApp.js",
         "type": "string"
       }
     }
