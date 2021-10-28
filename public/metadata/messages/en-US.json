@@ -1,0 +1,23 @@
+{
+  "name": "Oct8ne",
+  "headline": "Interact with your customers in real time.",
+  "overview": "Help your customers by showing them images and videos of your products using the coviewer to help them along in the decision making process.",
+  "features": [
+    "Coviewer: Discover a more interactive shopping experience by using the coviewer to see what your customers see in real time. You will be able to show products and interact with clients in order to increase sales implementing up-selling and cross-selling techniques. Users as well, will be able to upload their own images to show you exactly what they are looking for, such as broken or similar items.",
+    "Catalog Integration: Show images and videos of your products in one click through the coviewer. The integration of the catalog together with the visual support allow to reproduce the experience of a brick and mortar stor",
+    "Browsing history: You can see your customer’s interests by accessing their browsing history. You’ll be able to see which products they’ve looked at to offer personalized customer service and guide the customer throughout the purchase process. You won't have to worry about privacy: the only thing the agent will be able to see is the browsing history but not the full screen of the client.",
+	"Predictive algorithms: Anticipate your customers’ questions through automatic algorithms that detect the ideal time to communicate with your clients, for example when users have been on your website for a long time, when they have compared several products or when the cart value reaches a specific amount. Stay ahead of critical situations and capture customers before they have questions.",
+	"Video call: If you need to talk face to face with your client, you can continue the conversation through an Oct8ne video call that also allows you to share screens.",
+	"Phone Pin: Connect with customers you’re attending on the phone through the coviewer too, by entering a code. The communication is always easier if you can both see what you’re talking about in real time.",
+	"Chat Bot: Our chatbot is fully integrated with the live chat to facilitate the work of your agents, answering automatically in just a second, guiding customers toward the product/solution they need, through a flow of questions and multiple answers. This bot is also able to show products basing on the answers given by clients and they need personalized advice, it will transfer the query to a human. It increases sales thanks to real-time assistance when your agents are not connected, as well as collecting data from potential buyers. If you use another bot system, you can also integrate it with the Oct8ne chat.",
+	"Messaging: The integration with WhatsApp Business API and Facebook Messenger with catalog integration allows interaction with customers through different channels, showing products in real time, all from the same dashboard of the chat.",
+"Multi-language interface: Oct8ne adapts to the language your pages are in, so your customers feel comfortable from anywhere in the world.",
+	"Reports: You will have data about conversations and the images shown in the coviewer in real time and you’ll be able to keep track of all activity.",
+	"Managing workload: Increase productivity thanks to features designed to increase sales and help you save time."
+  ],
+  "additionalinformation": "How to set up\\n\\n1.- Install Oct8ne app\\n2.- Go to 'Apps' section in your store admin and open oct8ne app dashboard.\\n3.- Fill in server, license and base url and click on save\\n4.- Done. You should see the Oct8ne chat in all your store pages.",
+  "websiteURL": "https://oct8ne.com/",
+  "support": {
+    "email": "support@oct8ne.com"
+  }
+}

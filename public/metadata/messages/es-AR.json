@@ -1,0 +1,23 @@
+{
+  "name": "Oct8ne",
+  "headline": "El único chat con soporte de atención al cliente visual.",
+  "overview": "Muestra productos en tiempo real para personalizar la experiencia de compra y aumentar las ventas de tu negocio.",
+  "features": [
+    "Covisor: Descubre una experiencia de compra más interactiva gracias al covisor que te permite ver lo mismo que tus clientes en tiempo real. Podrás mostrar productos mientras hablas con tus clientes y aplicar técnicas de cross-selling y up-selling. No sólo podrás mostrar artículos de tu tienda, los usuarios también podrán subir sus propias imágenes al covisor para mostrarte qué están buscando exactamente.",
+    "Catálogo integrado: Muestra imágenes y vídeos de tus productos en un simple clic gracias al covisor. La integración de tu catálogo junto al soporte visual te permite reproducir la experiencia de compra de una tienda física.",
+    "Historial de búsqueda: Puedes ver en qué productos se ha interesado tu cliente. Sabrás qué artículos ha visitado cada usuario para ofrecerle un servicio de atención al cliente personalizado y guiarle durante todo el proceso de compra. No tendrás que preocuparte de la privacidad: lo único que ve el agente son los productos que ha consultado el cliente, pero no su pantalla.",
+	"Algoritmos predictivos: Anticípate a las dudas de tus clientes gracias a los algoritmos predictivos que detectan el momento perfecto para ofrecerles ayuda; como cuando un usuario lleva mucho tiempo en la página, ha visto varios productos similares o no termina el proceso de compra. Te adelantarás a esos momentos críticos que te hacen perder ventas.",
+	"Videollamada: Si necesitas hablar cara a cara con tu cliente, puedes continuar la conversación a través de una videollamada que, además, te permite compartir pantalla.",
+	"Phone Pin: Conecta en el covisor con los clientes que te llaman por teléfono a través de un código único y personalizado para cada usuario. La comunicación siempre es más fácil si ambos veis aquello de lo que estáis hablando.",
+	"Chat Bot: Nuestro chatbot está totalmente integrado con el livechat para facilitar el trabajo de sus agentes, respondiendo automáticamente en sólo un segundo, guiando a los clientes hacia el producto/solución que necesitan, a través de un flujo de preguntas y respuestas múltiples. El bot también es capaz de mostrar productos en función de las respuestas dadas por los clientes y si necesitan asesoramiento personalizado, transferirá la consulta a un humano. Aumenta las ventas gracias a la asistencia en tiempo real cuando los agentes no están conectados, además de recopilar datos de los potenciales compradores. También puedes integrar un bot externo con nuestro livechat.",
+	"Mensajería: La integración con la WhatsApp Business API y Facebook Messenger junto con la integración del catálogo permite interactuar con los clientes a través de diferentes canales, mostrando los productos en tiempo real, todo desde el mismo panel del chat.",
+	"Interfaz multidioma: Oct8ne se adapta al idioma de tu página web para que tus clientes se sientan cómodos y se sientan invitados a hablar contigo.",
+	"Estadísticas: Observa los datos en tiempo real sobre tus conversaciones o imágenes mostradas en el covisor para monitorear toda tu actividad.",
+	"Gestión de trabajo: Incrementa tu productividad gracias a las funcionalidades diseñadas específicamente para aumentar tus ventas y agilizar el trabajo."
+  ],
+  "additionalinformation": "Como instalar\\n1.- Instala la app de Oct8ne.\\n2.- Ve a la sección 'Apps' en el panel de administración de tu tienda y abre la app de Oct8ne.\\n3.- Rellena los campos 'Server' (USA por defecto), 'license' y 'base url'.\\n4.- Haz click en 'save' para aplicar los cambios.//n5.- Hecho. Ahora deberías poder ver el chat de Oct8ne en todas las páginas de tu tienda.",
+  "websiteURL": "https://oct8ne.com/",
+  "support": {
+    "email": "support@oct8ne.com"
+  }
+}
