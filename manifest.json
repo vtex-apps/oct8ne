@@ -11,11 +11,13 @@
     "store": "0.x"
   },
   "billingOptions": {
-    "free": true,
-    "termsURL": "https://oct8ne.com/terms-of-service/",
     "support": {
-      "url": "https://oct8ne.com/faqs/"
-    }
+      "url": "https://oct8ne.com/terms-of-service/"
+    },
+    "type": "free",
+    "availableCountries": [
+      "*"
+    ]
   },
   "dependencies": {
     "vtex.pixel-interfaces": "1.x"
@@ -46,6 +48,12 @@
           "EU",
           "USA"
         ]
+      },
+      "oct8neAppUrl": {
+        "title": "Oct8ne app url",
+        "description": "Enter the url to read the oct8ne app script from",
+        "default": "https://ecommerceproxy-cdn.oct8ne.com/scripts/vtexio/oct8neApp.js",
+        "type": "string"
       }
     }
   },
