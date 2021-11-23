@@ -11,11 +11,13 @@
     "store": "0.x"
   },
   "billingOptions": {
-    "free": true,
-    "termsURL": "https://oct8ne.com/terms-of-service/",
     "support": {
-      "url": "https://oct8ne.com/faqs/"
-    }
+      "url": "https://oct8ne.com/terms-of-service/"
+    },
+    "type": "free",
+    "availableCountries": [
+      "*"
+    ]
   },
   "dependencies": {
     "vtex.pixel-interfaces": "1.x"
