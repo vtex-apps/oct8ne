@@ -25,7 +25,7 @@ console.log('Loading oct8ne script');
     var locale = document.querySelector('html').lang;
     var isEu = server.includes('-eu');
     var srcStaticPart = isEu ? "static-eu.oct8ne.com" : "static.oct8ne.com";
-    var src = (document.location.protocol == "https:" ? "https://" : "http://") + srcStaticPart + "/api/v2/oct8ne-api-2.3.js?" + (Math.round(new Date().getTime() / 86400000));
+    var src = (document.location.protocol == "https:" ? "https://" : "http://") + srcStaticPart + "/api/v2/oct8ne.js?" + (Math.round(new Date().getTime() / 86400000));
 
     // For debugging purposes - remove when done =====================================
     //actualServer = "localhost:44348/";
